@@ -1,5 +1,7 @@
 \documentclass[conference]{acmsiggraph}
 
+\usepackage{cleveref}
+
 \title{The Title of Your Paper Goes Here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,7 +12,7 @@
 	\and
 	Tibor Goldschwendt\thanks{e-mail: goldschwendt@cip.ifi.lmu.de}\\LMU Munich
 	\and
-	Oleg Maltsev\thanks{e-mail: oleg.studiacc@arcor.de}\\TU Munich
+	Oleg Maltsev\thanks{e-mail: ga49bof@mytum.de}\\TU Munich
 }
 	
 \pdfauthor{Felix Manke, Tibor Goldschwendt}
@@ -28,24 +30,7 @@
 
 \begin{abstract}
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-molestie consequat, vel illum dolore eu feugiat nulla facilisis at 
-vero eros et accumsan et iusto odio dignissim qui blandit praesent
-luptatum zzril delenit augue duis dolore te feugait nulla
-facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-aliquam erat volutpat.
-
-Citations can be done this way~\cite{Jobs95} or this more concise 
-way~\shortcite{Jobs95}, depending upon the application.
-
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-vel eum iriure dolor in hendrerit~\cite{Pellacini:2005:LAH}
-in vulputate velit esse molestie~\cite{notes2002} 
-consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
-accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-delenit augue duis dolore te feugait nulla facilisi.~\cite{Park:2006:DSI}
+.....
 
 \end{abstract}
 
@@ -53,55 +38,62 @@ delenit augue duis dolore te feugait nulla facilisi.~\cite{Park:2006:DSI}
 
 \section{Introduction}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\begin{itemize}
+\item motivation
+\item{
+	general description of project
+	\begin{itemize}
+	\item what is it
+	\item dark room side
+	\item CAVE-side
+	\end{itemize}
+}
+\item entire team
+\item aspects: arts vs. technology
+\item how we find the concept
+\item purpose of this paper
+\end{itemize}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\section{Implementation}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\subsection{General Application Architecture}
+\textit{Graphic}
+\begin{itemize}
+\item brief description of components
+\end{itemize}
 
-\section{Exposition}
+\cref{SEC:CFE}
+\cref{FIG:SAMPLE}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\subsection{Network}
+\begin{itemize}
+\item Liblo + OSC
+\end{itemize}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\subsection{Visualisation}
+\begin{itemize}
+\item CAVE
+\item OpenSG
+\end{itemize}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+\subsection{Interaction}
+
+\begin{itemize}
+\item introduction
+\item used technologies
+\item evolution over time
+\item{
+	detailed description
+	\begin{itemize}
+	\item UML, Code
+	\item API
+	\item implementation
+	\end{itemize}
+}
+\end{itemize}
+
+\section{Conclusion \& Further Extensions}
+\label{SEC:CFE}
 
 \begin{equation}
  \sum_{j=1}^{z} j = \frac{z(z+1)}{2}
@@ -112,111 +104,12 @@ x & \ll & y_{1} + \cdots + y_{n} \\
   & \leq & z
 \end{eqnarray}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-\section{Exposition}
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=1.5in]{images/samplefigure}
   \caption{Sample illustration.}
+  \label{FIG:SAMPLE}
 \end{figure}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-\section{Exposition}
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-\section{Conclusion}
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
 
 \section*{Acknowledgements}
 
