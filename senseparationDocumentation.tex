@@ -126,11 +126,134 @@
 \subsection{Visualisation}
 \begin{itemize}
 \item introduction
-\item{ used technologies
+\item{used technologies
 	\begin{itemize}
-	\item CAVE
-	\item OpenSG
+	\item{CAVE
+		\begin{itemize}
+		\item some technical details on the cave
+		\item ideally some pictures/figures...
+		\end{itemize}
+	}
+	\item{OpenSG
+		\begin{itemize}
+		\item{ What is OpenSG?
+			\begin{itemize}
+			\item rough description
+			\item why do we use it?
+			\item some references (OpenSG, docu, etc ...)
+			\end{itemize}
+		}
+		\item{The Scenegraph
+			\begin{itemize}
+			\item figure / diagram
+			\item description of all nodes
+			\item reasons for this layout of the scenegraph
+			\end{itemize}
+		}
+		\end{itemize}
+	}
+	\item{GLUT
+		\begin{itemize}
+		\item{What is the OpenGL Utility Toolkit?
+			\begin{itemize}
+			\item rough description
+			\item some references
+			\end{itemize}
+		}
+		\item{What is it used for?
+			\begin{itemize}
+			\item basic GLUT window to create program/update loop
+			\item receive mouse and keyboard input
+			\item ...?
+			\end{itemize}
+		}
+		\item How is it implemented?
+		\end{itemize}
+	}
+	\item{CaveSceneManager
+		\begin{itemize}
+		\item What is the CaveSceneManager?
+		\item some references
+		\item why do we use it / what do we need it for?
+		\item how did we implement it?
+		\end{itemize}
+	}
 	\item don't forget to mention the 3D-models coming from the artists, build in 3D-Max and Maya, I guess...
+	\end{itemize}
+}
+\item{The Avatar
+	\begin{itemize}
+	\item{Introduction
+		\begin{itemize}
+		\item{What is an Avatar?
+			\begin{itemize}
+			\item some background information on the concept of avatars
+			\item including some references
+			\end{itemize}
+		}
+		\item{Why do we need it / What do we use it for?
+			\begin{itemize}
+			\item visualizing the remote user and his movement through space
+			\item allowing for interaction with the remote user via this virtual representaion
+			\end{itemize}
+		}
+		\end{itemize}			
+	}
+	\item{Design of the Avatar
+		\begin{itemize}
+		\item what functionality was needed
+		\item how should the avatar behave
+		\item{what should it look like?
+			\begin{itemize}
+			\item human-like representation
+			\item but still abstract, artificial
+			\end{itemize}
+		}
+		\item{what should the interaction with the avatar look like?
+			\begin{itemize}
+			\item approaching, touching, hitting,...
+			\item interaction through movement in space
+			\end{itemize}
+		}
+		\item{what implications came from this for the implementation of the avatar?
+			\begin{itemize}
+			\item needed to look human-like
+			\item needed to be able to react visually to interaction
+			\item on the one hand "large scale proximity" $\Rightarrow$ the user moving towards/away from the avatar
+			\item on the other hand "small scale proximity" $\Rightarrow$ the user touching different parts of the avatar
+			\end{itemize}
+		}
+		\end{itemize}			
+	}
+	\item{Implementation
+		\begin{itemize}
+		\item UML
+		\item{visuals
+			\begin{itemize}
+			\item human shape / silhouette
+			\item rotating cubes / orbits
+			\item exchange of cubes with the ground
+			\item vest
+			\item varying size depending on distance between user and avatar
+			\end{itemize}
+		}
+		\item{interaction
+			\begin{itemize}
+			\item interaction by proximity
+			\item changing size (far away $\Rightarrow$ diffuse large cube cloud; close $\Rightarrow$ defined human shape, plus: vest becomes visible)
+			\item pulsating cubes(touch, hit, bump)
+			\end{itemize}
+		}
+		\item components/variables/methods
+		\item description of all subclasses
+		\item usage / API
+		\item{network
+			\item what gets send over the network?
+			\item what gets received?
+			\item ... where to put this in the doc? maybe here just a reference to the network chapter?
+		}
+		\end{itemize}		
+	}
 	\end{itemize}
 }
 \item evolution over time
