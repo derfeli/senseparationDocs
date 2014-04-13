@@ -105,11 +105,18 @@ Different ideas and concepts finally lead into the final concept of separating s
 % APPLICATION ARCHITECTURE %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{General Application Architecture}
-\textit{Graphic / diagram} to visualize the overall system architecture (room-components, network, cave-components)
-\begin{itemize}
-\item brief description of components
-\end{itemize}
+The overall system architecture is defined by three basic building blocks: the dark room (with the haptic vest and the audio system), the VR-application running in the CAVE and the network connection between the room and the CAVE.
+
+TODO: figure to visualize the overall system architecture (room-components, network, cave-components)
+
+The dark room is equipped with a Microsoft Kinect\footnote{TODO: Referenz / kurze Beschreibung Kinect} for tracking the user's position and movement, and a sound system capable of producing spatial 3D-sound. The person within the dark room is wearing a vest that has several (TODO: how many exactly?) vibration motors built into it. These motors are placed at distinct locations like the shoulders, the neck, the back and the arms and provide haptic feedback to the person, wearing the vest. They are controlled individually by an Arduino Mini\footnote{TODO: Link/Beschreibung zum Arduino Mini} board, that is connected to a computer via Bluetooth.\\
+Also, there is a compass built into the vest that is used to determine the user's rotation. Together with the data gathered by the Kinect, we can determine the position and rotation of the person wearing the vest within the dark room.\\
+This information gets send over to the CAVE-application via network and gets directly mapped onto the movement of an avatar in the virtual world. The user in the CAVE can thereby see the movements of the person in the dark room as the avatar moves around and rotates accordingly. Further, he/she can interact with the avatar by touching it, hitting it, or walking through it. We distinguish these three different types of interaction and call them 'touch', 'hit', and 'bump'.\\
+The CAVE is also equipped with an IR tracking system which allows us to determine the exact position and rotation of the person inside of it.\\
+Information about the events of interaction (touch, hit, bump) as well as the additional data about the movements of the user within the CAVE are send back over the network to the dark room. There they are translated into tactile feedback coming from the vibration motors built into the haptic vest and into spatial sound being produced by the sound system.
+This way, the person in the dark room can here the movements of the person in the CAVE and feel the interactions (touch/hit/bump) right on their own body.
+
+In the following sections we are going to describe all the components and the software that drive the CAVE application and the network communication to the dark room. We are not going to describe the setup and software of the dark room itself in more detail. For more information about the dark room implementation see \ref{?? TODO: Referenz zu einer Beschreibung der DarkRoom Implementierung}
 
 
 
