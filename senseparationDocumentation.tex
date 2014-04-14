@@ -1,6 +1,9 @@
 \documentclass[conference]{acmsiggraph}
 
 \usepackage{cleveref}
+\usepackage{underscore}
+\usepackage{tabularx}
+\usepackage{array}
 
 \title{Senseparation: Design and Implementation of the Cave Application and the Network Communication}
 
@@ -146,7 +149,40 @@ In the following sections we are going to describe all the components and the so
 }
 \end{itemize}
 
+\begin{table*}[ht]
+	\global\let\currentrowstyle\relax%
+	\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}%
+	\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}%
+	\newcolumntype{R}{>{\raggedleft\arraybackslash\currentrowstyle}X}%
+	\newcolumntype{L}{>{\raggedright\arraybackslash\currentrowstyle}X}%
+	\newcolumntype{C}{>{\centering\arraybackslash\currentrowstyle}X}%
 
+	
+	\begin{minipage}{\linewidth}
+		\begin{tabularx}{\linewidth}{| +>{\itshape}L L L L L L L L >{\ttfamily}L | L}
+			\hline
+			\rowstyle{\bfseries\upshape\rmfamily}
+			Description         & Data Type     & Range                       & Origin                      & Coordinate System        & Units                & OSC Type Tags\footnote{\url{http://opensoundcontrol.org/spec-1_0}} & URL & Base Protocol \\ 
+			\hline
+			\hline
+			Activity Idicator   & nominal       & 0 (end),\newline1 (begin)   &                             &                          &                      & i     & /cave_person/activity   & TCP \\ 
+			\hline
+			Position	            & real vector   & unbounded                   & center of DARK ROOM floor   & right-handed Cartesian   & centimeters          & ff    & /cave_person/position   & UDP \\ 
+			\hline
+			 Velocity           & real          & [0, 1]	                      &                             &                          &                      & f     & /cave_person/velocity   & UDP\\ 
+			\hline
+			 Touch Start/End	    & nominal       &                             &                             & ---                      & 0 (end), 1 (begin)   & i     & /cave_person/touch      & TCP \\ 
+			\hline
+			 Touch              & real vector   &                             &                             &                          &                      & fff   & /cave_person/touching   & UDP \\ 
+			\hline
+			 Hit	                & real vector   &                             &                             &                          &                      & fff   & /cave_person/hit        & TCP \\ 
+			\hline
+			 Bumb               & real vector   &                             &                             &                          &                      & ff    & /cave_person/bump       & TCP \\ 
+			\hline
+		\end{tabularx}
+	\end{minipage}
+	\caption{Complete protocol definition}
+\end{table*}
 
 
 
