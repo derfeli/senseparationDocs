@@ -126,8 +126,18 @@ This way, the person in the dark room can hear the movements of the person in th
 
 In the following sections we are going to describe all the components and the software that drive the CAVE application and the network communication to the dark room. We are not going to describe the setup and software of the dark room itself in more detail. For more information about the dark room implementation see \ref{?? TODO: Referenz zu einer Beschreibung der DarkRoom Implementierung}
 
-
-
+\begin{itemize}
+	\item{
+		General architecture of cave side application:
+		\begin{itemize}
+			\item Networking module: sends and receives information
+			\item Tracking module: gets information from wand and head tracking
+			\item Rendering module: displays the scene
+			\item core module: holds the scene, processes information of other three modules
+		\end{itemize}
+	}
+	\item Threading architecture: Thread for network communication, thread for rendering
+\end{itemize}
 
 %%%%%%%%%%%
 % NETWORK %
@@ -136,6 +146,7 @@ In the following sections we are going to describe all the components and the so
 \subsection{Network}
 \begin{itemize}
 \item introduction
+\item purpose of this module
 \item{
 	used technologies
 	\begin{itemize}
@@ -158,6 +169,7 @@ In the following sections we are going to describe all the components and the so
 			\item offers two sets of api: low level, high level
 			\item high-level: creation of addresses and sending of messages
 			\item low-level: creation of servers, methods for sending messages with more options, thread control etc.
+			\item why do we use it
 		\end{itemize}
 	}
 	\end{itemize}
