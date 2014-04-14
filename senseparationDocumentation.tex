@@ -146,7 +146,36 @@ In the following sections we are going to describe all the components and the so
 \subsection{Network}
 \begin{itemize}
 \item introduction
-\item purpose of this module
+\item{
+	purpose of this module
+	\begin{itemize}
+		\item real time synchronisation of certain avatar parameters and the real person in the room
+		\item synchronisation of the noetworking and rendering thread
+	\end{itemize}
+}
+\item{
+	evolution over time
+	\begin{itemize}
+		\item first idea: use the cdpp \cite{goldschwendt13collaborative}
+		\item{
+			Advantages:
+			\begin{itemize}
+				\item easily extendable
+				\item experience in using it
+				\item fast and realiable
+				\item manages update cycles, takes care of overloading etc.
+				\item good configuration (e.g. sockets)
+			\end{itemize}
+		}
+		\item{
+			Disadvantages:
+			\begin{itemize}
+				\item C++ only
+				\item focuses on dynamic virtual worlds (creation and deletion of objects)
+			\end{itemize}
+		}
+	\end{itemize}
+}
 \item{
 	used technologies
 	\begin{itemize}
@@ -174,7 +203,6 @@ In the following sections we are going to describe all the components and the so
 	}
 	\end{itemize}
 }
-\item evolution over time
 \item{
 	detailed description
 	\begin{itemize}
