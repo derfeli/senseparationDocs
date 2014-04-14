@@ -1,0 +1,6 @@
+\global\let\currentrowstyle\relax%
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}%
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash\currentrowstyle}X}%
+\newcolumntype{L}{>{\raggedright\arraybackslash\currentrowstyle}X}%
+\newcolumntype{C}{>{\centering\arraybackslash\currentrowstyle}X}%

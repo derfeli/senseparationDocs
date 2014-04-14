@@ -4,6 +4,7 @@
 \usepackage{underscore}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{table_extensions}
 
 \title{Senseparation: Design and Implementation of the Cave Application and the Network Communication}
 
@@ -150,13 +151,6 @@ In the following sections we are going to describe all the components and the so
 \end{itemize}
 
 \begin{table*}[ht]
-	\global\let\currentrowstyle\relax%
-	\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}%
-	\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}%
-	\newcolumntype{R}{>{\raggedleft\arraybackslash\currentrowstyle}X}%
-	\newcolumntype{L}{>{\raggedright\arraybackslash\currentrowstyle}X}%
-	\newcolumntype{C}{>{\centering\arraybackslash\currentrowstyle}X}%
-
 	
 	\begin{minipage}{\linewidth}
 		\begin{tabularx}{\linewidth}{| +>{\itshape}L L L L L L L L >{\ttfamily}L | L}
@@ -181,7 +175,24 @@ In the following sections we are going to describe all the components and the so
 			\hline
 		\end{tabularx}
 	\end{minipage}
-	\caption{Complete protocol definition}
+	\caption{Protocol definition for packages sent from DarkRoomServer to CAVE}
+\end{table*}
+
+\begin{table*}[ht]
+	\begin{minipage}{\linewidth}
+		\begin{tabularx}{\linewidth}{| +>{\itshape}L L L L L L L L >{\ttfamily}L | L}
+			\hline
+			\rowstyle{\bfseries\upshape\rmfamily}
+			Description         & Data Type     & Range                       & Origin                      & Coordinate System        & Units                & OSC Type Tags\footnote{\url{http://opensoundcontrol.org/spec-1_0}} & URL & Base Protocol \\ 
+			\hline
+			\hline
+			Position            & real vector   & unbounded                   & center of DARK ROOM floor   & right-handed Cartesian   & centimeters          & ff    & /room_person/position      & UDP \\ 
+			\hline
+			Orientation         & real          & $ [0, 2\pi] $               &                             &                          & Radians              & f     & /room_person/orientation   & UDP\\ 
+			\hline
+		\end{tabularx}
+	\end{minipage}
+	\caption{Protocol definition for packages sent from CAVE to DarkRoomServer}
 \end{table*}
 
 
