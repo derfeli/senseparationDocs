@@ -174,6 +174,29 @@ In the following sections we are going to describe all the components and the so
 				\item focuses on dynamic virtual worlds (creation and deletion of objects)
 			\end{itemize}
 		}
+		\item {
+			\item{
+				second idea: use the OSC
+				\begin{itemize}
+					\item{
+						Advantages:
+						\begin{itemize}
+							\item event oriented
+							\item support for many programming languages
+							\item more stable
+							\item more lightweight
+							\item also fast and reliable
+						\end{itemize}
+					}
+					\item{
+						Disadvantages:
+						\begin{itemize}
+							\item Libraries does not provide the configuration possibilities we needed
+						\end{itemize}
+					}
+				\end{itemize}
+			}
+		}
 	\end{itemize}
 }
 \item{
@@ -182,12 +205,26 @@ In the following sections we are going to describe all the components and the so
 	\item{
 		OSC
 		\begin{itemize}
-			\item developed by Wright and Freed in 1997 \cite{Wright97Open}
-			\item intended for interactive real time music transmission
-			\item bit based protocol -> transmittable over arbitrary protocols like IP, TCP, UDP
-			\item should be open in the sense that there only few requirements in the implementations
-			\item therefore diverse realisations available
-			\item due to the open nature other applications possible -> our project (no real sound mapping) \cite{Wright05Open}
+			\item{
+				general:
+				\begin{itemize}
+					\item developed by Wright and Freed in 1997 \cite{Wright97Open}
+					\item intended for interactive real time music transmission
+					\item bit based protocol -> transmittable over arbitrary protocols like IP, TCP, UDP
+					\item should be open in the sense that there only few requirements in the implementations
+					\item therefore diverse realisations available
+					\item due to the open nature other applications possible -> our project (no real sound mapping) \cite{Wright05Open}
+				\end{itemize}
+			}
+			\item{
+				specification \cite{Wright02Open}
+				\begin{itemize}
+					\item osc packages consist of osc messages or bundles
+					\item bundles include a timetag and other bundles recursively or messages
+					\item messages consist of address patterns, type string and arguments
+					\item Messages get dispatched to specific methods
+				\end{itemize}
+			}
 		\end{itemize}
 	}
 	\item{
