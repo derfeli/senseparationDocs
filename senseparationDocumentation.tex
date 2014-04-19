@@ -6,6 +6,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{table_extensions}
 
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+
+
 \title{Senseparation: Design and Implementation of the Cave Application and the Network Communication}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -69,7 +72,7 @@ By this means, tactile, visual, and auditory sensory perceptions are separated b
 To make communication between both individuals possible, some exchange of information across geographic boundaries is necessary. Therefore data about both users is gathered within the dark room as well as within the CAVE and send over to the other location via network.
 
 
-TODO: umschreiben: \textit{Multilayer of behaviors in virtual CAVE stimulate the layer of sensation in the dark room correspondingly by mapping the behaviorial infomation onto the feedback suite. Simultaneously the sound system is also modified according to the encounter. By this means of an avatar, the user in virtual reality is able to interact with the person in the real space.}
+\todo{umschreiben: \textit{Multilayer of behaviors in virtual CAVE stimulate the layer of sensation in the dark room correspondingly by mapping the behaviorial infomation onto the feedback suite. Simultaneously the sound system is also modified according to the encounter. By this means of an avatar, the user in virtual reality is able to interact with the person in the real space.}}
 
 Senseparation is a collaborative project between the University of Arts and Industrial Design Linz, Ludwig Maximilian University of Munich and Leibniz Supercomputing Centre. More than 30 people from different fields worked on realizing the whole project.\\
 Starting in September 2013, several workshops and presence meetings in Munich and Linz as well as numerous remote-calls guided the individual teams through the process of creating this project.
@@ -113,37 +116,48 @@ The overall system architecture is depicted in \cref{FIG:SYSTEM_ARCHITECTURE} an
 
 \begin{figure}[ht]
 	\includegraphics[width=\linewidth]{images/system_architecture.png}
-	\caption{TODO: remake}
+	\caption{\todo{remake}}
 	\label{FIG:SYSTEM_ARCHITECTURE}
 \end{figure}
 
-The dark room is equipped with a Microsoft Kinect\footnote{TODO: Referenz / kurze Beschreibung Kinect} for tracking the user's position and movement, and a sound system capable of producing spatial 3D-sound. The person within the dark room is wearing a vest that has several (TODO: how many exactly?) vibration motors built into it. These motors are placed at distinct locations like the shoulders, the neck, the back and the arms and provide haptic feedback to the person, wearing the vest. They are controlled individually by an Arduino Mini\footnote{TODO: Link/Beschreibung zum Arduino Mini} board, that is connected to a computer via Bluetooth.\\
-Also, there is a compass built into the vest that is used to determine the user's rotation. Together with the data gathered by the Kinect, we can determine the position and rotation of the person wearing the vest within the dark room.\\
-This information gets send over to the CAVE-application via network and gets directly mapped onto the movement of an avatar in the virtual world. The user in the CAVE can thereby see the movements of the person in the dark room as the avatar moves around and rotates accordingly. Further, he/she can interact with the avatar by touching it, hitting it, or walking through it. We distinguish these three different types of interaction and call them 'touch', 'hit', and 'bump'.\\
-The CAVE is also equipped with an IR tracking system which allows us to determine the exact position and rotation of the person inside of it.\\
+The dark room is equipped with a Microsoft Kinect\footnote{TODO: Referenz / kurze Beschreibung Kinect} for tracking the user's position and movement, and a sound system capable of producing spatial 3D-sound. The person within the dark room is wearing a vest that has several (TODO: how many exactly?) vibration motors built into it. These motors are placed at distinct locations like the shoulders, the neck, the back and the arms and provide haptic feedback to the person, wearing the vest. They are controlled individually by an Arduino Mini\footnote{TODO: Link/Beschreibung zum Arduino Mini} board, that is connected to a computer via Bluetooth.\par
+Also, there is a compass built into the vest that is used to determine the user's rotation. Together with the data gathered by the Kinect, we can determine the position and rotation of the person wearing the vest within the dark room.\par
+This information gets send over to the CAVE-application via network and gets directly mapped onto the movement of an avatar in the virtual world. The user in the CAVE can thereby see the movements of the person in the dark room as the avatar moves around and rotates accordingly. Further, he/she can interact with the avatar by touching it, hitting it, or walking through it. We distinguish these three different types of interaction and call them 'touch', 'hit', and 'bump'.\par
+The CAVE is also equipped with an IR tracking system which allows us to determine the exact position and rotation of the person inside of it.\par
 Information about the events of interaction (touch, hit, bump) as well as the additional data about the movements of the user within the CAVE are send back over the network to the dark room. There they are translated into tactile feedback coming from the vibration motors built into the haptic vest and into spatial sound being produced by the sound system.
-This way, the person in the dark room can hear the movements of the person in the CAVE and feel the interactions (touch/hit/bump) right on their own body.
+This way, the person in the dark room can hear the movements of the person in the CAVE and feel the interactions (touch/hit/bump) right on their own body.\par
 
 In the following sections we are going to describe all the components and the software that drive the CAVE application and the network communication to the dark room. We are not going to describe the setup and software of the dark room itself in more detail. For more information about the dark room implementation see \ref{?? TODO: Referenz zu einer Beschreibung der DarkRoom Implementierung}
 
-\begin{itemize}
-	\item{
-		General architecture of cave side application:
-		\begin{itemize}
-			\item Networking module: sends and receives information
-			\item Tracking module: gets information from wand and head tracking
-			\item Rendering module: displays the scene
-			\item core module: holds the scene, processes information of other three modules
-		\end{itemize}
-	}
-	\item Threading architecture: Thread for network communication, thread for rendering
-\end{itemize}
+\begin{figure}[ht]
+	\textit{Graphic of the CAVE-side application}
+	\caption{\todo{make}}
+	\label{FIG:CAVE_APP_ARCHITECTURE}
+\end{figure}
+
+The general architecture of the CAVE-side implementation of Senseparation consists of a network, tracking, rendering and a core module as depictured in \cref{FIG:CAVE_APP_ARCHITECTURE}.\par
+
+\paragraph{Core Module}
+The core module stores all information either predefined (e.g. the virtual world), retrieved from the Dark Room or entered by means of CAVE user interaction. On the basis of this information the core module calculates the current appearance of the avatar and initiates the transmission of the CAVE user's current position and certain interaction events such as touches. All parts of the core module's realisation related to the visualisations inside the CAVE and the avatar are described in \cref{SEC:VISUALISATION}. The parts specific to one of the other modules are explained in the \cref{SEC:NETWORK} or \ref{SEC:INTERACTION}.
+
+\paragraph{Network Module}
+The network module is responsible for exchanging all relevant information between the the CAVE application and Senseparation's the Dark Room-side implementation. To realise this a Senseparation protocol must be defined on application level and integrated into the CAVE application. Detailed information are given in \cref{SEC:NETWORK}.
+
+\paragraph{Tracking Module} 
+This module processes the tracking data, which is collected by the tracking devices such as the Wand or the head tracking, and transfers the information to the core module. The tracking data servers as the foundation to enable interaction between the CAVE user and the person in the Dark Room. See \cref{SEC:INTERACTION} for further information.
+
+\paragraph{Rendering Module}
+The rendering module displays the virtual world kept by the core module in the CAVE.... \todo{finish}
 
 %%%%%%%%%%%
 % NETWORK %
 %%%%%%%%%%%
 
 \subsection{Network}
+\label{SEC:NETWORK}
+
+\todo{replace: The CAVE application uses two threads: one rendering thread -- that also processes tracking information and calculates the avatar -- and thread for data reception from the Dark Room. Since the information received over the network must be shared with the rendering module we must synchronize the local data of both the threads.}
+
 \begin{itemize}
 \item introduction
 \item{
@@ -235,20 +249,43 @@ In the following sections we are going to describe all the components and the so
 			\item offers two sets of api: low level, high level
 			\item high-level: creation of addresses and sending of messages
 			\item low-level: creation of servers, methods for sending messages with more options, thread control etc.
-			\item why do we use it
+			\item why do we use it?
+			\item{
+				Advantages
+				\begin{itemize}
+					\item lightweight
+					\item C -> well integrates with our project
+				\end{itemize}
+			}
+			\item{
+				Disadvantages
+				\begin{itemize}
+					\item Handles sockets etc. by itself
+					\item Not so many methods for configuration
+				\end{itemize}
+			}
 		\end{itemize}
 	}
 	\end{itemize}
 }
 \item{
-	detailed description
+	steps of the implementation
 	\begin{itemize}
-	\item UML
-	\item programming language, libraries...
-	\item API
-	\item implementation, code examples, algorithms,...
+		\item define protocol on application level (\cref{TAB:PROTOCOL_DARK_ROOM_CAVE}, \cref{TAB:PROTOCOL_CAVE_DARK_ROOM})
+		\item enhance cave app with support for our protocol
+		\item apply and send changes
+		\item patching of liblo
 	\end{itemize}
 }
+%\item{
+%	detailed description
+%	\begin{itemize}
+%	\item UML
+%	\item programming language, libraries...
+%	\item API
+%	\item implementation, code examples, algorithms,...
+%	\end{itemize}
+%}
 \end{itemize}
 
 \begin{table*}[ht]
@@ -270,13 +307,14 @@ In the following sections we are going to describe all the components and the so
 			\hline
 			 Touch              & real vector   &                             &                             &                          &                      & fff   & /cave{\textunderscore}person/touching   & UDP \\ 
 			\hline
-			 Hit                & real vector   &                             &                             &                          &                      & fff   & /cave{\textunderscore}person/hit        & TCP \\ 
+			 Hit                & real vector   &                             &                             &                          &                      & fff   & /cave{\textunderscore}person/hitÂ        & TCP \\ 
 			\hline
-			 Bumb               & real vector   &                             &                             &                          &                      & ff    & /cave{\textunderscore}person/bump       & TCP \\ 
+			 Bumb               & real vector   &                             &                             &                          &                      & ff    &Â /cave{\textunderscore}person/bump       & TCP \\ 
 			\hline
 		\end{tabularx}
 	\end{minipage}
 	\caption{Protocol definition for packages sent from DarkRoomServer to CAVE}
+	\label{TAB:PROTOCOL_DARK_ROOM_CAVE}
 \end{table*}
 
 \begin{table*}[ht]
@@ -294,6 +332,7 @@ In the following sections we are going to describe all the components and the so
 		\end{tabularx}
 	\end{minipage}
 	\caption{Protocol definition for packages sent from CAVE to DarkRoomServer}
+	\label{TAB:PROTOCOL_CAVE_DARK_ROOM}
 \end{table*}
 
 
@@ -303,6 +342,8 @@ In the following sections we are going to describe all the components and the so
 %%%%%%%%%%%%%%%%%
 
 \subsection{Visualisation}
+\label{SEC:VISUALISATION}
+
 \begin{itemize}
 \item introduction
 \item{used technologies
@@ -481,6 +522,8 @@ In the following sections we are going to describe all the components and the so
 %%%%%%%%%%%%%%%
 
 \subsection{Interaction}
+\label{SEC:INTERACTION}
+
 \begin{itemize}
 \item introduction
 \item{ used technologies
