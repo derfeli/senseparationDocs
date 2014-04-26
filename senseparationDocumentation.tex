@@ -6,6 +6,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{table_extensions}
 
+\DeclareGraphicsExtensions{.pdf,.jpg,.pdf,.mps,.png}
+\graphicspath{{images/}} 
+
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 
 
@@ -307,9 +310,9 @@ The rendering module displays the virtual world kept by the core module in the C
 			\hline
 			 Touch              & real vector   &                             &                             &                          &                      & fff   & /cave{\textunderscore}person/touching   & UDP \\ 
 			\hline
-			 Hit                & real vector   &                             &                             &                          &                      & fff   & /cave{\textunderscore}person/hit        & TCP \\ 
+			 Hit                & real vector   &                             &                             &                          &                      & fff   & /cave{\textunderscore}person/hit        & TCP \\ 
 			\hline
-			 Bumb               & real vector   &                             &                             &                          &                      & ff    & /cave{\textunderscore}person/bump       & TCP \\ 
+			 Bumb               & real vector   &                             &                             &                          &                      & ff    & /cave{\textunderscore}person/bump       & TCP \\ 
 			\hline
 		\end{tabularx}
 	\end{minipage}
@@ -342,6 +345,22 @@ The rendering module displays the virtual world kept by the core module in the C
 %%%%%%%%%%%%%%%%%
 
 \subsection{Visualisation}
+The virtual world with the Avatar as representation of the remote room-user is displayed in stereoscopic 3D within the 5-sided projection installation at the Virtual Reality and Visualisation Centre (V2C) a the Leibniz Supercomputing Centre.\\
+The basic idea of the 5-sided projection installation is based on the concept of the 'CAVE' (Cave-like Augmented Virtual Environment) by Carolina Cruz-Neira \cite{Cruz-Neira92} and puts the user directly and physically into an virtual world.\\
+This is achieved by the user entering a 2.7 x 2.7 x 2.7 meters sized cube \textit{(see figure \ref{fig:5sided})}, whose walls, floor, and ceiling are being projected with computer-rendered images and totally cover the user's field of view.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=2.0in]{5_sided_cave}
+  \caption[The 5-sided projection installation, source: \newline\href{http://www.lrz.de/services/v2c\_ de/bilder/5sided.jpg}{http://www.lrz.de/services/v2c\_de/bilder/5sided.jpg}]{\textit{The 5-sided projection installation of the V2C at the LRZ}}
+  \label{fig:5sided}
+\end{figure}
+
+As the sides of the CAVE are each being illuminated by two HD stereo projectors, the user - wearing 3D-shutter glasses - is able to watch the virtual scene in full, active stereoscopic vision.\\
+An integrated infrared tracking system measures the position of the user's head inside the CAVE and allows for adapting the camera perspective of the 3D scene to match the user's point of view.\\
+By combining all this technology the user finally feels like he would really be physically present in the virtual world. Being able to create this strong feeling of presence and immersion allows us to provide a unique, fascinating presentation of an interactive, virtual 3D-environment.
+
+
 \label{SEC:VISUALISATION}
 
 \begin{itemize}
@@ -521,7 +540,7 @@ The rendering module displays the virtual world kept by the core module in the C
 % INTERACTION %
 %%%%%%%%%%%%%%%
 
-\subsection{Interaction}
+\subsection{Tracking and Interaction}
 \label{SEC:INTERACTION}
 
 \begin{itemize}
