@@ -1,5 +1,8 @@
 \documentclass[conference]{acmsiggraph}
 
+	
+\usepackage{ulem}  % unterstreichen, durchstreichen, etc. von Text
+\usepackage{amssymb} % Symbole, z.B. Checkmark
 \usepackage{cleveref}
 \usepackage{tabularx}
 \usepackage{array}
@@ -345,8 +348,8 @@ The rendering module displays the virtual world kept by the core module in the C
 %%%%%%%%%%%%%%%%%
 
 \subsection{Visualisation}
-The virtual world with the Avatar as representation of the remote room-user is displayed in stereoscopic 3D within the 5-sided projection installation at the Virtual Reality and Visualisation Centre (V2C) a the Leibniz Supercomputing Centre.\\
-The basic idea of the 5-sided projection installation is based on the concept of the 'CAVE' (Cave-like Augmented Virtual Environment) by Carolina Cruz-Neira \cite{Cruz-Neira92} and puts the user directly and physically into an virtual world.\\
+The virtual world with the Avatar as a representation of the remote room-user is displayed in stereoscopic 3D within the 5-sided projection installation at the Virtual Reality and Visualisation Centre (V2C) a the Leibniz Supercomputing Centre.\\
+The basic idea of the 5-sided projection installation is based on the concept of the 'CAVE' (CAVE Automatic Virtual Environment) by Carolina Cruz-Neira \cite{Cruz-Neira92} and puts the user directly and physically into an virtual world.\\
 This is achieved by the user entering a 2.7 x 2.7 x 2.7 meters sized cube \textit{(see figure \ref{fig:5sided})}, whose walls, floor, and ceiling are being projected with computer-rendered images and totally cover the user's field of view.
 
 \begin{figure}[htb]
@@ -356,10 +359,14 @@ This is achieved by the user entering a 2.7 x 2.7 x 2.7 meters sized cube \texti
   \label{fig:5sided}
 \end{figure}
 
-As the sides of the CAVE are each being illuminated by two HD stereo projectors, the user - wearing 3D-shutter glasses - is able to watch the virtual scene in full, active stereoscopic vision.\\
-An integrated infrared tracking system measures the position of the user's head inside the CAVE and allows for adapting the camera perspective of the 3D scene to match the user's point of view.\\
-By combining all this technology the user finally feels like he would really be physically present in the virtual world. Being able to create this strong feeling of presence and immersion allows us to provide a unique, fascinating presentation of an interactive, virtual 3D-environment.
+As the sides of the CAVE are each being illuminated by two HD stereo projectors, the user - wearing 3D-shutter glasses - is able to experience the virtual scene in full, active stereoscopic vision.\\
+An integrated infrared tracking system measures the position of the user's head inside of the CAVE and allows for adapting the camera perspective of the 3D scene to match the user's point of view.\\
+By combining all this features the user finally feels like he would actually be physically present in the virtual world.\\
+Being able to create this strong feeling of presence and immersion allows to provide a unique, fascinating presentation of an interactive, virtual 3D-environment.
 
+To create this virtual environment, the CAVE-apllication uses OpenSG\footnote{for more information on OpenSG see \href{http://www.opensg.org/}{www.opensg.org}}, which is a portable scenegraph system that allows to create realtime graphics programs and is very well suited for virtual reality applications. As OpenSG is Open Source (LGPL\footnote{for more information on the GNU Lesser General Public License (LGPL) see \href{https://www.gnu.org/licenses/lgpl.html}{www.gnu.org/licenses/lgpl.html}}) it can be used freely. OpenSG runs on Windows, Linux, Solaris and MacOS X and is based on OpenGL.
+
+The decision on using OpenSG was made based on the operating-system independence, the free license and the orientation towards virtual reality applications. \todo{something else???}
 
 \label{SEC:VISUALISATION}
 
@@ -369,17 +376,17 @@ By combining all this technology the user finally feels like he would really be 
 	\begin{itemize}
 	\item{CAVE
 		\begin{itemize}
-		\item some technical details on the cave
-		\item ideally some pictures/figures...
+		\item \sout{some technical details on the cave} \checkmark 
+		\item \sout{ideally some pictures/figures...} \checkmark
 		\end{itemize}
 	}
 	\item{OpenSG
 		\begin{itemize}
 		\item{ What is OpenSG?
 			\begin{itemize}
-			\item rough description
+			\item \sout{rough description}\checkmark
 			\item why do we use it?
-			\item some references (OpenSG, docu, etc ...)
+			\item \sout{some references (OpenSG, docu, etc ...)} \checkmark
 			\end{itemize}
 		}
 		\item{The Scenegraph
